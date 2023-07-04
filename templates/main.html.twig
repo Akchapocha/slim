@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block require_css %}{% endblock %}
+
+{% block menu %}
+    {% include 'section/menu.html.twig' with {'menu': menu} %}
+{% endblock %}
+
+
+{% block body %}
+{% endblock %}
+
+{% block require_js %}{% endblock %}

@@ -1,0 +1,22 @@
+.text_post{
+    display: inline-block;
+    width: 100%;
+}
+
+.text_post textarea{
+    width: 50%;
+}
+
+.new_post{
+    display: inline-block;
+    width: 100%;
+}
+
+.new_post textarea{
+    width: 50%;
+}
+
+.add_post_btn{
+    display: inline-block;
+    margin-top: 20px;
+}

@@ -1,0 +1,16 @@
+.row{
+    background-color: #f6f7f8;
+}
+
+.form-control{
+    display: inline-block;
+    margin: 16px 0 0 10px;
+    transform: translateY(2px);
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid #d4d4d4;
+    margin: 0 0 0 10px;
+    background-color: #fbfbfb;
+}

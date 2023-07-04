@@ -1,0 +1,36 @@
+services:
+  php-fpm:
+    extends:
+      file: docker-compose.base.yml
+      service: php-fpm
+    image: registry.pleer.ru/prinik-group/php:${PHP_IMAGE_TAG:-latest}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./:/app
+      - ./config/php/conf.d/xdebug-remote.ini:/usr/local/etc/php/conf.d/xdebug-remote.ini
+      - ./php-profiler:/srv/profiler
+    command: sh -c '/usr/bin/composer install && php-fpm'
+
+  nginx:
+    extends:
+      file: docker-compose.base.yml
+      service: nginx
+    ports:
+      - "33080:80"
+
+  mysql:
+    extends:
+      file: docker-compose.base.yml
+      service: mysql
+    environment:
+      - MARIADB_RANDOM_ROOT_PASSWORD="yes"
+      - MARIADB_DATABASE=${DB_NAME:-db}
+      - MARIADB_USER=${DB_USER:-user}
+      - MARIADB_PASSWORD=${DB_PASS:-pass}
+    ports:
+      - "33306:3306"
+
+volumes:
+  db_data:
+    external: false

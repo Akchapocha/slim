@@ -1,0 +1,60 @@
+.container-fluid{
+    background-color: #f6f7f8;
+}
+
+.row{
+    font-weight: bold;
+    text-align: center;
+}
+
+.refresh_btn, .delete_serial{
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin: 3px 10px 3px 0;
+    padding: 1px 8px;
+}
+
+.row:nth-child(2){
+    background-color: #ffffff;
+    padding: 5px 0 5px 0;
+}
+
+.row:nth-child(3){
+    padding-top: 5px;
+}
+
+.row:nth-child(3) button{
+    border-radius: 4px;
+    margin: 7px 0 7px 10px;
+    padding: 3px 10px;
+}
+
+input[name="forbidden_serial"]{
+    margin-left: 20px;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+}
+
+.serialsWithProduct{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.free_serial_item{
+    height: 40px;
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+
+.free_serial_item > .free_serial{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.free_serial_item > .free_serial:first-child{
+    transform: translateY(-15px);
+}

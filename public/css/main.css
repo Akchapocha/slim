@@ -1,0 +1,78 @@
+.navbar{
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.navbar-brand{
+    color: #777777;
+}
+
+.nav{
+    margin: 10px 0 0 10px;
+}
+
+.current_user{
+    margin-right: 10px;
+}
+
+.breadcrumb{
+    margin: 10px 0 0 10px;
+}
+
+.content{
+    display: inline-block;
+    width: 100%;
+    min-height: 750px;
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+
+.posts{
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+}
+
+.posts li{
+    list-style-type: none;
+}
+
+.posts a, .posts button{
+    display: inline-block;
+}
+
+.add_post{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.buttons{
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.buttons button{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.spinner-modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.spinner-border{
+    position: fixed;
+    left: 45%;
+    top: 45%;
+    z-index: 1000;
+    --bs-spinner-width: 8rem;
+    --bs-spinner-height: 8rem;
+    --bs-spinner-border-width: 1em;
+    --bs-spinner-animation-speed: 2s;
+}

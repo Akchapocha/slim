@@ -1,0 +1,14 @@
+<div class="col-12 free">
+    <ul class="list-group">
+        {% for item in serials%}
+            <li class="list-group-item list-group-item-action free_serial_item">
+                <div class="free_serial col-2">{{ item.serial }}</div>
+                <div class="free_serial col-9">
+                    <button type="button" class="btn btn-outline-secondary delete_serial">
+                        &timesb;
+                    </button>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

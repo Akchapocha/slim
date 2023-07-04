@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block require_css %}
+    <link href="{{ asset_css('edit_product_properties.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block menu %}
+    {% include 'section/menu.html.twig' with {'menu': menu} %}
+{% endblock %}
+
+
+{% block body %}
+
+{% endblock %}
+
+{% block require_js %}
+    <script src="{{ asset_js('edit_product_properties.js') }}"></script>
+{% endblock %}

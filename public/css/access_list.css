@@ -1,0 +1,71 @@
+.access{
+    height: 850px;
+}
+.users_letters, .active_user,
+.users_list, .access-list, .access-buttons{
+    background-color: #f6f7f8;
+    border-radius: 3px;
+}
+
+.access .row:nth-child(2){
+    height: 95%;
+}
+
+.access .row:nth-child(2) .col-5,
+.access .row:nth-child(2) .col-5{
+    height: 100%;
+}
+
+.users_list{
+    height: 99%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.access-list{
+    height: 91.5%;
+}
+
+.access-block{
+    border-right: 1px solid #dce0e4;
+}
+
+.access-block:last-child{
+    border-right: none;
+}
+
+.list-group-item span{
+    width: auto;
+}
+
+.letter.list-group-item.disabled{
+    background-color: #545454;
+    color: #CCCCCC;
+}
+
+.firstLetter, .firstLetters{
+    text-transform: uppercase;
+}
+
+.firstLetters{
+    cursor: pointer;
+    text-decoration: none;
+    color: #333333;
+}
+
+.firstLetters:hover{
+    color: #777777;
+}
+
+.list-group-item.list-group-item-action.active{
+    background-color: #348031;
+    border-color: #348031;
+}
+
+.access-buttons{
+    height: 5.6%;
+}
+
+.active_user span:nth-child(2){
+    float: right;
+}

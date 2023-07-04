@@ -1,0 +1,79 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block require_css %}
+    <link href="{{ asset_css('access_list.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block menu %}
+    {% include 'section/menu.html.twig' with {'menu': menu} %}
+{% endblock %}
+
+
+{% block body %}
+    <div class="container-fluid access">
+        <div class="row mb-3">
+            <div class="col-5">
+                <div class="ms-3 p-2 border bg-light users_letters">
+                    {% for firstLetter, user in users %}
+                        <a href="#{{ firstLetter }}" class="firstLetters">{{ firstLetter }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="ms-2 me-3 p-2 border bg-light active_user">
+                    <span id="user">-</span> <span id="id">-</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="ms-3 p-2 border bg-light users_list">
+                    <div class="list-group">
+                        {% for firstLetter, item in users %}
+                            <a class="letter list-group-item disabled" href="#">
+                                <span class="firstLetter" id="{{ firstLetter }}">{{ firstLetter }}</span>
+                            </a>
+                                {% for user in item %}
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        <span id="id">{{ user.id }}</span>
+                                        <span id="name">{{ user.name }}</span>
+                                    </a>
+                                {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="ms-2 me-3 p-2 border bg-light access-list">
+                    <div class="row h-100 access-row">
+
+                        {% for block in pages%}
+                            <div class="col-4 access-block">
+                                {% for item, page in  block%}
+                                    {% if item == 0 %}
+                                        <h5>{{ page.name }}</h5>
+                                    {% else %}
+                                        <label class="checkbox w-100">
+                                            <input type="checkbox" id="{{ page.id }}">
+                                            {{ page.name }}
+                                        </label>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="ms-2 mt-3 me-3 p-2 border bg-light access-buttons">
+                    <button type="button" id="save_access">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block require_js %}
+    <script src="{{ asset_js('access_list.js') }}"></script>
+{% endblock %}

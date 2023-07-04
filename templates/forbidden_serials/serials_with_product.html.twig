@@ -1,0 +1,11 @@
+<div class="col-12 with_product">
+    <ul class="list-group">
+        {% for item in serials%}
+            <li class="list-group-item list-group-item-action serialsWithProduct_item">
+                <div class="serialsWithProduct col-1">{{ item.productId }}</div>
+                <div class="serialsWithProduct col-8">Product_Name_From_Pleer</div>
+                <div class="serialsWithProduct col-2">{{ item.serial }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

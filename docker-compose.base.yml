@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  php-fpm:
+    image: registry.pleer.ru/prinik-group/php:${PHP_IMAGE_TAG:-8.1-stable}
+    user: ${FPM_USER-}
+    pull_policy: always
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./tmp:/app/tmp
+      - ./templates:/app/templates
+      - ./public:/app/public
+      - ./composer.json:/app/composer.json
+      - ./composer.lock:/app/composer.lock
+      - ./config/php/fpm-conf.d/stack.conf:/usr/local/etc/php-fpm.d/zz-stack.conf:ro
+    command: sh -c '/usr/bin/composer install --no-dev && php-fpm'
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./public:/var/www/html:ro
+    depends_on:
+      - php-fpm
+
+  mysql:
+    image: mariadb
+    volumes:
+      - db_data:/var/lib/mysql:rw
+
+volumes:
+  db_data:
+    external: true

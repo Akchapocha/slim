@@ -1,0 +1,8 @@
+.env
+docker-compose.override.yml
+php-profiler
+vendor
+.php-cs-fixer.cache
+.phpunit.cache
+tmp
+/.phpunit.result.cache

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">СКЛАД v3.0 rev:0</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                {% for block in menu%}
+                    <li class="nav-item dropdown">
+                        {% for item, page in  block%}
+                            {% if item == 0 %}
+                                <a class="nav-link dropdown-toggle" href="#"
+                                   id="navbarDropdown" role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    {{ page.name }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% else %}
+                                <li>
+                                    <a class="dropdown-item"
+                                       id="{{ page.name }}"
+                                       href="/{{ page.module }}">
+                                        {{ page.name }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+
+            </ul>
+            <a class="nav-link current_user" href="#">Username (Выход)</a>
+        </div>
+    </div>
+</nav>

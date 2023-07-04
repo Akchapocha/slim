@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block require_css %}
+    <link href="{{ asset_css('forbidden_serials.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block menu %}
+    {% include 'section/menu.html.twig' with {'menu': menu} %}
+{% endblock %}
+
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-secondary refresh_btn" type="button">
+                    &orarr;
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 mx-auto">
+                <label>
+                    Серийный номер
+                    <input type="text" name="forbidden_serial">
+                </label>
+                <button type="button" id="addSerial">Сохранить</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-2">
+                Серийные номера, привязанные к товару
+            </div>
+        </div>
+        <ul class="list-group head_with_product">
+            <li class="list-group-item list-group-item-action serialsWithProduct_item">
+                <div class="serialsWithProduct col-1">id</div>
+                <div class="serialsWithProduct col-8">Название товара</div>
+                <div class="serialsWithProduct col-2">Серийный номер</div>
+            </li>
+        </ul>
+
+        {% include 'forbidden_serials/serials_with_product.html.twig'
+            with {'serials': serials.staged} %}
+
+        <div class="row">
+            <div class="col-12 mb-2 mt-2">
+                Серийные номера без привязки к товару
+            </div>
+        </div>
+        <ul class="list-group head_free_serial">
+            <li class="list-group-item list-group-item-action">
+                <div class="free_serial col-2">Серийный номер</div>
+                <div class="free_serial col-9"></div>
+            </li>
+        </ul>
+
+        {% include 'forbidden_serials/free_serials.html.twig'
+            with {'serials': serials.forbidden} %}
+
+    </div>
+{% endblock %}
+
+{% block require_js %}
+    <script src="{{ asset_js('forbidden_serials.js') }}"></script>
+{% endblock %}

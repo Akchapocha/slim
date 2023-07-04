@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block require_css %}
+    <link href="{{ asset_css('add_user.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block menu %}
+    {% include 'section/menu.html.twig' with {'menu': menu} %}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <div class="mb-3">
+                    <label for="uid" class="form-label">ID пользователя: </label>
+                    <input type="text" class="form-control w-25" id="uid">
+                    <button type="button" class="btn btn-light">Добавить пользователя</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block require_js %}
+    <script src="{{ asset_js('add_user.js') }}"></script>
+{% endblock %}

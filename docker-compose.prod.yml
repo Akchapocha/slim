@@ -1,0 +1,37 @@
+services:
+  php-fpm:
+    extends:
+      file: docker-compose.base.yml
+      service: php-fpm
+    restart: unless-stopped
+    networks:
+      - default
+  nginx:
+    extends:
+      file: docker-compose.base.yml
+      service: nginx
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_default"
+      - "traefik.http.routers.${HOST_NAME:-prinikfront}.entrypoints=websecure"
+      - "traefik.http.routers.${HOST_NAME:-prinikfront}.rule=Host(`${HOST_NAME:-prinikfront}.${DOMAIN_NAME:-pleer.ru}`)"
+      - "traefik.http.routers.${HOST_NAME:-prinikfront}.tls=true"
+      - "traefik.http.routers.${HOST_NAME:-prinikfront}.tls.certresolver=leresolver"
+      - "traefik.http.services.${HOST_NAME:-prinikfront}-srv.loadbalancer.server.port=80"
+    networks:
+      - traefik_default
+      - default
+
+  mysql:
+    extends:
+      file: docker-compose.base.yml
+      service: mysql
+    restart: unless-stopped
+    networks:
+      - default
+
+networks:
+  default:
+  traefik_default:
+    external: true
